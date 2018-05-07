@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author mcotrina
+ * @author Miguel Angel Cotrina Espinoza
+ * Universidad Tecnologica del Peru
+ * Correo: 0820832@utp.edu.pe
  */
 public class Trainer {
     public Neuron train(Neuron neurona, double[][] entradas, double[] salidaEsperada){
