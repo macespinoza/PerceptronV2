@@ -10,8 +10,7 @@ import java.util.List;
  * Correo: 0820832@utp.edu.pe
  */
 public class Neuron {
-    
-    //private int[] entradas; 
+
     private double[] x;
     private double[] w;
     private double bias;
@@ -59,13 +58,6 @@ public class Neuron {
             return 0;
         }
     }
-    
-    
-    /*
-    public String toString() {
-        return "Neuron{" + "entradas  x=" + this.x[] + ", w=" + this.w.length + ", polatizacion=" + this.bias + '}'; 
-    }*/
-
     @Override
     public String toString() {
         return "Neuron{" + "x=" + Arrays.toString(x) + ", w=" + Arrays.toString(w) + ", bias=" + bias + '}';
