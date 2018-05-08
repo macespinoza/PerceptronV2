@@ -14,7 +14,7 @@ import java.util.List;
  * Correo: 0820832@utp.edu.pe
  */
 public class Trainer {
-    public Neuron train(Neuron neurona, double[][] entradas, double[] salidaEsperada){
+    public Neuron train(Neuron neurona, double[][] entradas, double[] salidaEsperada, int maximoCiclos){
         double error=0;
         double w[] = new double[entradas[0].length];
         double bias = -1+(Math.random()*(2));
@@ -24,7 +24,7 @@ public class Trainer {
         neurona.setW(w);
         neurona.setBias(bias);
         
-        for(int i=0;i<500;i++){
+        for(int i=0;i<maximoCiclos;i++){
             for(int j=0;j<salidaEsperada.length;j++){
                 neurona.setX(entradas[j]);
                 error = salidaEsperada[j] - neurona.sinapsis();

@@ -16,6 +16,9 @@ import java.util.List;
 public class PerceptronV2 {
 
     public static void main(String[] args) {
+        operadorSimple();
+    }
+    public static void operadorSimple(){
         // Entrada de las cuatro operaciones posibles para un operador logico
         double[][] Entradas =  {{0,0},
                                 {0,1},
@@ -26,12 +29,12 @@ public class PerceptronV2 {
         //Procedemos a entrenar a la neurona
         Neuron neurona = new Neuron();
         Trainer trainer = new Trainer();
-        neurona = trainer.train(neurona, Entradas, salidaEsperada);
+        neurona = trainer.train(neurona, Entradas, salidaEsperada,100);
         //Probamos la neurona entrenada
         double[] datoPrueba = {1,0};
         neurona.setX(datoPrueba);
         System.out.println(neurona.toString());
-        System.out.println(neurona.sinapsis());
+        System.out.println("Salida del Perceptron: "+neurona.sinapsis());
     }
     
 }
