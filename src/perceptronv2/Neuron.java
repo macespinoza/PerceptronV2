@@ -1,8 +1,11 @@
 
 package perceptronv2;
 
+import java.awt.Canvas;
+import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JFrame;
 
 /**
  * @author Miguel Angel Cotrina Espinoza
@@ -60,6 +63,7 @@ public class Neuron {
     }
     @Override
     public String toString() {
+        Graficar grafica = new Graficar();
         return "Neuron{" + "x=" + Arrays.toString(x) + ", w=" + Arrays.toString(w) + ", bias=" + bias + '}';
     }
 }
