@@ -6,7 +6,10 @@
 package perceptronv2;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
@@ -15,23 +18,42 @@ import javax.swing.JFrame;
  */
 public class Graficar extends Canvas{
     JFrame frame;
-
-    public Graficar()
+    Neuron[] neurona;
+    double matriz[][];
+    public Graficar(int sizeCuadro, Neuron[] neurona)
     {
         super();
-        super.setSize(400,400);
-        frame = new JFrame("Grafica de Modelo de red");
+        matriz = new double[neurona.length][4];
+        for(int n=0;n<neurona.length;n++){
+                matriz[n][0] = 0;
+                matriz[n][1] = -(neurona[n].getBias()/ neurona[n].getW()[1]);
+                matriz[n][2] = sizeCuadro;       
+                matriz[n][3] = (-((neurona[n].getW()[0]/neurona[n].getW()[1])*sizeCuadro)-(neurona[n].getBias()/neurona[n].getW()[1]));        
+        }
+
+        this.neurona = neurona; 
+        super.setSize(sizeCuadro,sizeCuadro);
+        super.setBackground(Color.WHITE);
+        frame = new JFrame("Grafica de clases del Perceptron");
         frame.getContentPane().add(this);
         frame.pack();
         frame.setVisible(true);
-
+        frame.addWindowListener(
+        new WindowAdapter() {public void windowClosing( WindowEvent evt ) { System.exit( 0 );} } );
     }
-    public void agregarLineas(int a, int b, int c, int d){
-        
-    }
+ 
+    
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawLine(1,1,500,500);
+        for(int i=0;i<this.neurona.length;i++){
+            int x1 = (int)this.matriz[i][0];
+            int y1 = (int)this.matriz[i][1];
+            int x2 = (int)this.matriz[i][2];
+            int y2 = (int)this.matriz[i][3];
+            System.out.println("X1: "+x1+" Y1: "+y1+" X2: "+x2+" Y2: "+y2);
+            g.drawLine(x1,y1,x2,y2); 
+        }
     }
+
 }

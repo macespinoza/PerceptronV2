@@ -63,7 +63,6 @@ public class Neuron {
     }
     @Override
     public String toString() {
-        Graficar grafica = new Graficar();
         return "Neuron{" + "x=" + Arrays.toString(x) + ", w=" + Arrays.toString(w) + ", bias=" + bias + '}';
     }
 }

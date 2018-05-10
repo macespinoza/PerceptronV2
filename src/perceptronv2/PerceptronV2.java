@@ -34,6 +34,9 @@ public class PerceptronV2 {
         double[] datoPrueba = {1,0};
         neurona.setX(datoPrueba);
         System.out.println(neurona.toString());
+        Neuron neuronas[] = new Neuron[1];
+        neuronas[0]  =  neurona;
+        Graficar grafica = new Graficar(800,neuronas);
         System.out.println("Salida del Perceptron: "+neurona.sinapsis());
     }
     
